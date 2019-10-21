@@ -5,17 +5,15 @@ hook global InsertKey "'" %{
 
     # Now we attempt to replace that quote with the correct curly one.
     execute-keys %sh{
-        char_prior="$kak_reg_q"
-
         # For the special case where the cursor’s at 0:0 (really 0:1
         # after typing the quote), let’s pretend like there’s
         # whitespace before it.
         if [ $kak_cursor_byte_offset -le 1 ]; then
-            char_prior=' '
+            kak_reg_q=' '
         fi
 
         # Is the prior character whitespace?
-        case "$char_prior" in
+        case "$kak_reg_q" in
         [[:space:]])
             # If so, we replace it with an opening curly.
             printf '<backspace>‘'
