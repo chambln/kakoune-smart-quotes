@@ -1,4 +1,4 @@
-define-command -params 2 curly-quotes %{
+define-command -hidden -params 2 curly-quotes %{
     # The user just typed a quote. What character comes before it? Store
     # that in register ‘q.’
     execute-keys -draft '<esc>hh"qy'
