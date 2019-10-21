@@ -1,4 +1,4 @@
-hook global InsertKey "'" %{
+define-command -params 2 curly-quotes %{
     # The user just typed a quote. What character comes before it? Store
     # that in register ‘q.’
     execute-keys -draft '<esc>hh"qy'
@@ -9,19 +9,22 @@ hook global InsertKey "'" %{
         # after typing the quote), let’s pretend like there’s
         # whitespace before it.
         if [ $kak_cursor_byte_offset -le 1 ]; then
-            kak_reg_q=' '
+            kak_reg_q=" "
         fi
 
         # Is the prior character whitespace?
         case "$kak_reg_q" in
         [[:space:]])
             # If so, we replace it with an opening curly.
-            printf '<backspace>‘'
+            printf "<backspace>$1"
             ;;
         *)
             # Otherwise, we replace it with a closing curly.
-            printf '<backspace>’'
+            printf "<backspace>$2"
             ;;
         esac
     }
 }
+
+hook global InsertChar "'" %{curly-quotes ‘ ’}
+hook global InsertChar '"' %{curly-quotes “ ”}
