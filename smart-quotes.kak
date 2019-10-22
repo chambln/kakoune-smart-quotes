@@ -34,3 +34,7 @@ define-command smart-quotes-enable -docstring 'Automatically curl inserted quote
 define-command smart-quotes-disable -docstring "Disable automatic curling of quotes" %{
     remove-hooks window smart-quotes
 }
+
+try %{
+    set-option -add global auto_pairs ‘ ’ “ ”
+}
