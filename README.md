@@ -14,3 +14,15 @@ functionality](https://asciinema.org/a/9mfchs3KboH7EAwgGSV86F034.svg)](https://a
 
 Put a copy of or link to `smart-quotes.kak` anywhere within your
 `~/.config/kak/autoload/` directory.
+
+## Usage
+
+In Kakoune, do `:smart-quotes-enable<ret>` to enable the conversion. To
+enable it for certain filetypes (e.g. reStructuredText), you could put
+something like the following in your `.config/kak/kakrc`:
+
+``` ruby
+hook global WinSetOption "filetype=rst" %{
+    smart-quotes-enable
+}
+```
