@@ -19,6 +19,6 @@ Put a copy of or link to `smart-quotes.kak` anywhere within your
 
 In Kakoune, do `:smart-quotes-enable<ret>` to enable the conversion. To
 enable it for certain filetypes (e.g. reStructuredText), you could put
-something like the following in your `.config/kak/kakrc`:
+something like the following in your `~/.config/kak/kakrc`:
 
     hook global WinSetOption "filetype=restructuredtext" smart-quotes-enable
