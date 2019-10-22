@@ -26,5 +26,5 @@ define-command -hidden -params 2 curly-quotes %{
     }
 }
 
-hook global InsertChar "'" %{curly-quotes ‘ ’}
-hook global InsertChar '"' %{curly-quotes “ ”}
+hook -group curly-quotes global InsertChar "'" %{curly-quotes ‘ ’}
+hook -group curly-quotes global InsertChar '"' %{curly-quotes “ ”}
