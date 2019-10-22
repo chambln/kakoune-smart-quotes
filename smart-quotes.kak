@@ -30,3 +30,5 @@ define-command smart-quotes-disable -docstring "Disable automatic curling of quo
 try %{
     set-option -add global auto_pairs ‘ ’ “ ”
 }
+
+set-option -add global matching_pairs ‘ ’ “ ”
