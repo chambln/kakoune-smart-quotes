@@ -22,7 +22,5 @@ enable it for certain filetypes (e.g. reStructuredText), you could put
 something like the following in your `.config/kak/kakrc`:
 
 ``` ruby
-hook global WinSetOption "filetype=rst" %{
-    smart-quotes-enable
-}
+hook global WinSetOption "filetype=restructuredtext" smart-quotes-enable
 ```
