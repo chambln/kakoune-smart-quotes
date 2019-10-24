@@ -1,8 +1,9 @@
 # Smart quotes for Kakoune
 
-This is a simple Kakoune plugin that replaces, as you type, the usual
-typewriter-style straight quotes with typographically pleasing curly
-quotes. It also works with contractions like `I’m` and `‘em`.
+This is a simple [Kakoune](https://kakoune.org) plugin that replaces, as
+you type, the usual typewriter-style straight quotes with
+typographically pleasing curly quotes. It also works with contractions
+like `I’m` and `‘em`.
 
     'example'  →  ‘example’
     "example"  →  “example”
