@@ -1,26 +1,42 @@
-define-command -hidden -params 2 smart-quotes %{
-    # The user just typed a quote. What character comes before it? Store
-    # that in register q.
-    execute-keys -draft '<esc>hh"qy'
+# See LICENSE file for copyright and license details.
 
-    # Now we attempt to replace that quote with the correct curly one.
-    execute-keys -with-hooks %sh{
-        case "$kak_reg_q" in
-        [[:space:]\'\"$2])
-            # Replace it with an opening quote mark.
-            printf "<backspace>$1"
-            ;;
-        *)
-            # Replace it with a closing quote mark.
-            printf "<backspace>$2"
-            ;;
-        esac
+define-command -hidden -params 2 smart-quotes-insert %{
+    execute-keys <left>
+    execute-keys %sh{
+        # Is the cursor at the beginning of the buffer?
+        if [ $kak_cursor_byte_offset -eq 0 ]; then
+            printf "$1"             # Insert an opening quote.
+        else
+            # Consider the character prior:
+            case "$kak_reg_dot" in
+            [[:space:]\'\"$2])      # It’s whitespace or a quote,
+                printf "<right>$1"  # so insert an opening quote.
+                ;;
+            *)
+                printf "<right>$2"  # Otherwise insert a closing quote.
+                ;;
+            esac
+        fi
     }
 }
 
+define-command -hidden smart-quotes-insert-single %{
+    smart-quotes-insert ‘ ’
+}
+
+define-command -hidden smart-quotes-insert-double %{
+    smart-quotes-insert “ ”
+}
+
 define-command smart-quotes-enable -docstring 'Automatically curl inserted quotes (''…'' → ‘…’ and "…" → “…”)' %{
-    hook -group smart-quotes window InsertChar "'" %{smart-quotes ‘ ’}
-    hook -group smart-quotes window InsertChar '"' %{smart-quotes “ ”}
+    hook -group smart-quotes window InsertChar "'" %{
+        execute-keys <backspace>
+        smart-quotes-insert-single
+    }
+    hook -group smart-quotes window InsertChar '"' %{
+        execute-keys <backspace>
+        smart-quotes-insert-double
+    }
 }
 
 define-command smart-quotes-disable -docstring "Disable automatic curling of quotes" %{
@@ -29,6 +45,7 @@ define-command smart-quotes-disable -docstring "Disable automatic curling of quo
 
 try %{
     set-option -add global auto_pairs ‘ ’ “ ”
+    set-option -add global auto_pairs_surround ‘ ’ “ ”
 }
 
 set-option -add global matching_pairs ‘ ’ “ ”
