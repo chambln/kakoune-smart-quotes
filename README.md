@@ -10,7 +10,7 @@ apostrophes too.
     I'm        →  I’m
 
 [![Demonstration of the smart quotes
-functionality](https://asciinema.org/a/9mfchs3KboH7EAwgGSV86F034.svg)](https://asciinema.org/a/9mfchs3KboH7EAwgGSV86F034)
+functionality](https://asciinema.org/a/PDoUNK4m07xuDJA7fgQZrXSJ9.svg)](https://asciinema.org/a/PDoUNK4m07xuDJA7fgQZrXSJ9)
 
 ## Installation
 
