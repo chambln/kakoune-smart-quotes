@@ -37,6 +37,8 @@ define-command smart-quotes-enable -docstring 'Automatically curl inserted quote
         execute-keys <backspace>
         smart-quotes-insert-double
     }
+    map window insert <a-'> "'<left><a-;>r'<right>" -docstring "Explicitly insert a straight quote"
+    map window insert <a-"> '"<left><a-;>r"<right>' -docstring "Explicitly insert a straight quote"
 }
 
 define-command smart-quotes-disable -docstring "Disable automatic curling of quotes" %{
