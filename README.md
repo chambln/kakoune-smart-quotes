@@ -9,7 +9,7 @@ quotes as you type.
     I'm        →  I’m
 
 [![Demonstration of smart quoting in
-Kakoune](https://asciinema.org/a/PDoUNK4m07xuDJA7fgQZrXSJ9.svg)](https://asciinema.org/a/PDoUNK4m07xuDJA7fgQZrXSJ9)
+Kakoune](https://asciinema.org/a/GbokpvZb5accDhJI7cXNEb3Gb.svg)](https://asciinema.org/a/GbokpvZb5accDhJI7cXNEb3Gb)
 
 ## Installation
 
