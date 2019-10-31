@@ -33,7 +33,7 @@ Always use smart quoting for e.g. reStructuredText:
     # ~/.config/kak/kakrc
     hook global WinSetOption filetype=restructuredtext smart-quotes-enable
 
-Use Alt to smartly insert a quote:
+Use <kbd>Alt</kbd> to smartly insert a quote:
 
     # ~/.config/kak/kakrc
     map global insert <a-'> '<a-;>: smart-quotes-insert-single<ret>'
