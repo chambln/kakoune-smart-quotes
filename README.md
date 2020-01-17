@@ -60,6 +60,12 @@ Use <kbd>Alt</kbd> to smartly insert a quote:
     map global insert <a-'> "<a-;>: smart-quotes-insert \' ‘ ’<ret>"
     map global insert <a-"> '<a-;>: smart-quotes-insert \" “ ”<ret>'
 
+Or use guillemets instead:
+
+    # ~/.config/kak/kakrc
+    map global insert <a-'> "<a-;>: smart-quotes-insert \' ‹ › <ret>"
+    map global insert <a-"> '<a-;>: smart-quotes-insert \" « » <ret>'
+
 ### Notes
 
   - Repeated keypresses cycle opening, straight, and closing quotes.

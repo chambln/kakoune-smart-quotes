@@ -4,7 +4,7 @@ provide-module smart-quotes %{
 
     set-option -add global matching_pairs ‘ ’ “ ” ‹ › « »
 
-    define-command -hidden -params 3 smart-quotes-insert %{
+    define-command -params 3 smart-quotes-insert %{
         execute-keys -itersel %sh{
             # Is the cursor at the beginning of the buffer?
             if [ $kak_cursor_byte_offset -eq 0 ]; then
