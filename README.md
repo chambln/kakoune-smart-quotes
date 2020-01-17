@@ -13,6 +13,8 @@ Kakoune](https://asciinema.org/a/GbokpvZb5accDhJI7cXNEb3Gb.svg)](https://asciine
 
 ## Installation
 
+### Manual
+
 Put a copy of `smart-quotes.kak` anywhere within your
 `~/.config/kak/autoload/` directory, e.g.
 
@@ -20,6 +22,21 @@ Put a copy of `smart-quotes.kak` anywhere within your
 mkdir -pv ~/.config/kak/autoload/
 ln -fis /usr/share/kak/autoload ~/.config/kak/autoload/  # Include Kakoune’s defaults
 git clone https://github.com/chambln/kakoune-smart-quotes ~/.config/kak/autoload/kakoune-smart-quotes
+```
+
+### [plug.kak](https://gitlab.com/andreyorst/plug.kak)
+
+Suggested configuration:
+
+``` kak
+plug chambln/kakoune-smart-quotes config %{
+    map global insert <a-'> '<a-;>: smart-quotes-insert-single<ret>'
+    map global insert <a-"> '<a-;>: smart-quotes-insert-double<ret>'
+    hook global \
+         WinSetOption \
+         filetype=(mail|markdown|restructuredtext|git-commit) \
+         smart-quotes-enable
+}
 ```
 
 ## Usage
