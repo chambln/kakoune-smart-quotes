@@ -30,7 +30,7 @@ Manually enable smart quoting in the current window:
 
 Enable smart quoting for one insert session:
 
-    :smart-quotes-modes<ret>
+    :smart-quotes-mode<ret>
 
 Always use smart quoting for e.g. reStructuredText:
 
