@@ -1,19 +1,8 @@
 # See LICENSE file for copyright and license details.
 
-set-option -add global matching_pairs ‘ ’ “ ”
-
-define-command smart-quotes-enable -docstring 'Automatically curl inserted quotes (''…'' → ‘…’ and "…" → “…”)' %{
-    require-module smart-quotes
-    map window insert "'" '<a-;>: smart-quotes-insert-single<ret>' -docstring "smartly insert a single quote"
-    map window insert '"' '<a-;>: smart-quotes-insert-double<ret>' -docstring "smartly insert a double quote"
-}
-
-define-command smart-quotes-disable -docstring "Disable automatic curling of quotes" %{
-    unmap window insert "'" '<a-;>: smart-quotes-insert-single<ret>'
-    unmap window insert '"' '<a-;>: smart-quotes-insert-double<ret>'
-}
-
 provide-module smart-quotes %{
+
+    set-option -add global matching_pairs ‘ ’ “ ” ‹ › « »
 
     define-command -hidden -params 3 smart-quotes-insert %{
         execute-keys -itersel %sh{
@@ -53,4 +42,16 @@ provide-module smart-quotes %{
         smart-quotes-insert '"' “ ”
     }
 
+    define-command smart-quotes-enable -docstring 'Automatically curl inserted quotes (''…'' → ‘…’ and "…" → “…”)' %{
+        map window insert "'" '<a-;>: smart-quotes-insert-single<ret>' -docstring "smartly insert a single quote"
+        map window insert '"' '<a-;>: smart-quotes-insert-double<ret>' -docstring "smartly insert a double quote"
+    }
+
+    define-command smart-quotes-disable -docstring "Disable automatic curling of quotes" %{
+        unmap window insert "'" '<a-;>: smart-quotes-insert-single<ret>'
+        unmap window insert '"' '<a-;>: smart-quotes-insert-double<ret>'
+    }
+
 }
+
+require-module smart-quotes
