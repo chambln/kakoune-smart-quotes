@@ -34,22 +34,14 @@ provide-module smart-quotes %{
         }
     }
 
-    define-command -hidden smart-quotes-insert-single %{
-        smart-quotes-insert "'" ‘ ’
-    }
-
-    define-command -hidden smart-quotes-insert-double %{
-        smart-quotes-insert '"' “ ”
-    }
-
     define-command smart-quotes-enable -docstring 'Automatically curl inserted quotes (''…'' → ‘…’ and "…" → “…”)' %{
-        map window insert "'" '<a-;>: smart-quotes-insert-single<ret>' -docstring "smartly insert a single quote"
-        map window insert '"' '<a-;>: smart-quotes-insert-double<ret>' -docstring "smartly insert a double quote"
+        map window insert "'" "<a-;>: smart-quotes-insert \' ‘ ’<ret>" -docstring "smartly insert a single quote"
+        map window insert '"' '<a-;>: smart-quotes-insert \" “ ”<ret>' -docstring "smartly insert a double quote"
     }
 
     define-command smart-quotes-disable -docstring "Disable automatic curling of quotes" %{
-        unmap window insert "'" '<a-;>: smart-quotes-insert-single<ret>'
-        unmap window insert '"' '<a-;>: smart-quotes-insert-double<ret>'
+        unmap window insert "'" "<a-;>: smart-quotes-insert \' ‘ ’<ret>"
+        unmap window insert '"' '<a-;>: smart-quotes-insert \" “ ”<ret>'
     }
 
     define-command smart-quotes-mode -docstring "Enable smart quoting for the next insert session" %{

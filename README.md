@@ -30,8 +30,8 @@ Suggested configuration:
 
 ``` kak
 plug chambln/kakoune-smart-quotes config %{
-    map global insert <a-'> '<a-;>: smart-quotes-insert-single<ret>'
-    map global insert <a-"> '<a-;>: smart-quotes-insert-double<ret>'
+    map global insert <a-'> "<a-;>: smart-quotes-insert \' ‘ ’<ret>"
+    map global insert <a-"> '<a-;>: smart-quotes-insert \" “ ”<ret>'
     hook global \
          WinSetOption \
          filetype=(mail|markdown|restructuredtext|git-commit) \
@@ -57,8 +57,8 @@ Always use smart quoting for e.g. reStructuredText:
 Use <kbd>Alt</kbd> to smartly insert a quote:
 
     # ~/.config/kak/kakrc
-    map global insert <a-'> '<a-;>: smart-quotes-insert-single<ret>'
-    map global insert <a-"> '<a-;>: smart-quotes-insert-double<ret>'
+    map global insert <a-'> "<a-;>: smart-quotes-insert \' ‘ ’<ret>"
+    map global insert <a-"> '<a-;>: smart-quotes-insert \" “ ”<ret>'
 
 ### Notes
 
