@@ -28,6 +28,10 @@ Manually enable smart quoting in the current window:
 
     :smart-quotes-enable<ret>
 
+Enable smart quoting for one insert session:
+
+    :smart-quotes-modes<ret>
+
 Always use smart quoting for e.g. reStructuredText:
 
     # ~/.config/kak/kakrc
