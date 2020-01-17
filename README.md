@@ -51,20 +51,26 @@ Enable smart quoting for one insert session:
 
 Always use smart quoting for e.g. reStructuredText:
 
-    # ~/.config/kak/kakrc
-    hook global WinSetOption filetype=restructuredtext smart-quotes-enable
+``` kak
+# ~/.config/kak/kakrc
+hook global WinSetOption filetype=restructuredtext smart-quotes-enable
+```
 
 Use <kbd>Alt</kbd> to smartly insert a quote:
 
-    # ~/.config/kak/kakrc
-    map global insert <a-'> "<a-;>: smart-quotes-insert \' ‘ ’<ret>"
-    map global insert <a-"> '<a-;>: smart-quotes-insert \" “ ”<ret>'
+``` kak
+# ~/.config/kak/kakrc
+map global insert <a-'> "<a-;>: smart-quotes-insert \' ‘ ’<ret>"
+map global insert <a-"> '<a-;>: smart-quotes-insert \" “ ”<ret>'
+```
 
 Or use guillemets instead:
 
-    # ~/.config/kak/kakrc
-    map global insert <a-'> "<a-;>: smart-quotes-insert \' ‹ › <ret>"
-    map global insert <a-"> '<a-;>: smart-quotes-insert \" « » <ret>'
+``` kak
+# ~/.config/kak/kakrc
+map global insert <a-'> "<a-;>: smart-quotes-insert \' ‹ › <ret>"
+map global insert <a-"> '<a-;>: smart-quotes-insert \" « » <ret>'
+```
 
 ### Notes
 
