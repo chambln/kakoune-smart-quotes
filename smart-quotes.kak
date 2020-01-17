@@ -54,9 +54,7 @@ provide-module smart-quotes %{
 
     define-command smart-quotes-mode -docstring "Insert mode with automatic curling of quotes" %{
         smart-quotes-enable
-        hook -always -once window ModeChange 'pop:insert:.*' %{
-            smart-quotes-disable
-        }
+        hook -always -once window ModeChange 'pop:insert:.*' smart-quotes-disable
         execute-keys i
     }
 
