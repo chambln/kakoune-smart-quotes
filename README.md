@@ -71,8 +71,8 @@ map global insert <a-"> '<a-;>: smart-quotes-insert \" « » <ret>'
   - Repeated keypresses cycle opening, straight, and closing quotes.
   - `<c-v>` bypasses smart-quotes whereas `\i` does not.
   - A contraction at the beginning of a word should have an apostrophe
-    (`’`), but smart-quotes will insert an opening quote (`‘`) instead;
-    e.g.
+    (`’`), but smart-quotes will erroneously insert an opening quote
+    (`‘`) instead; e.g.
       - `the ‘80s` (incorrect) instead of `the ’80s` (correct),
       - `fish ‘n’ chips` (incorrect) instead of `fish ’n’ chips`
         (correct).
