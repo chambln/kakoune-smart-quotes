@@ -15,14 +15,8 @@ Kakoune](https://asciinema.org/a/GbokpvZb5accDhJI7cXNEb3Gb.svg)](https://asciine
 
 ### Manual
 
-Put a copy of `smart-quotes.kak` anywhere within your
-`~/.config/kak/autoload/` directory, e.g.
-
-``` bash
-mkdir -pv ~/.config/kak/autoload/
-ln -fis /usr/share/kak/autoload ~/.config/kak/autoload/  # Include Kakoune’s defaults
-git clone https://github.com/chambln/kakoune-smart-quotes ~/.config/kak/autoload/kakoune-smart-quotes
-```
+Put a copy of or link to `smart-quotes.kak` anywhere within
+`~/.config/kak/autoload/`.
 
 ### [plug.kak](https://gitlab.com/andreyorst/plug.kak)
 
