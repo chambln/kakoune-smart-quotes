@@ -5,28 +5,29 @@ provide-module smart-quotes %{
     define-command -params 3 smart-quotes-insert %{
         execute-keys -itersel %sh{
             # Is the cursor at the beginning of the buffer?
-            if [ $kak_cursor_byte_offset -eq 0 ]; then
-                printf $3  # Set up for an opening quote replacement.
+            if [ "$kak_cursor_byte_offset" -eq 0 ]; then
+                # Set up for an opening quote replacement.
+                printf %s "$3"
             fi
             printf "<left>"
         }
         execute-keys -itersel %sh{
             # Consider the character prior:
-            case "$kak_selection" in
-            $1)                     # If it’s a straight quote,
-                printf "<del>$3"    # replace it with a closing quote.
+            case $kak_selection in
+            "$1")                      # If it’s a straight quote,
+                printf %s "<del>$3"    # replace it with a closing quote.
                 ;;
-            $2)                     # If it’s an opening quote,
-                printf "<del>$1"    # replace it with a straight quote.
+            "$2")                      # If it’s an opening quote,
+                printf %s "<del>$1"    # replace it with a straight quote.
                 ;;
-            $3)                     # If it’s a closing quote,
-                printf "<del>$2"    # replace it with an opening quote.
+            "$3")                      # If it’s a closing quote,
+                printf %s "<del>$2"    # replace it with an opening quote.
                 ;;
-            [[:space:]\'\"])        # If it’s whitespace or ' or ",
-                printf "<right>$2"  # insert an opening quote.
+            [[:space:]\'\"])           # If it’s whitespace or ' or ",
+                printf %s "<right>$2"  # insert an opening quote.
                 ;;
-            *)                      # Otherwise,
-                printf "<right>$3"  # insert a closing quote.
+            *)                         # Otherwise,
+                printf %s "<right>$3"  # insert a closing quote.
                 ;;
             esac
         }
