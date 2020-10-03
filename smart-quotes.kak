@@ -2,8 +2,6 @@
 
 provide-module smart-quotes %{
 
-    set-option -add global matching_pairs ‘ ’ “ ” ‹ › « »
-
     define-command -params 3 smart-quotes-insert %{
         execute-keys -itersel %sh{
             # Is the cursor at the beginning of the buffer?
@@ -48,6 +46,8 @@ provide-module smart-quotes %{
         smart-quotes-enable
         hook -always -once window ModeChange 'pop:insert:.*' smart-quotes-disable
     }
+
+    set-option -add global matching_pairs ‘ ’ “ ” ‹ › « »
 
 }
 
